@@ -1,0 +1,63 @@
+﻿<Window x:Class="NewsTer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NewsTer"
+        mc:Ignorable="d"
+        Title="NewsTer News Tweeting Application" Height="447" Width="1099" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="Close" Executed="OnCloseCmdExecuted" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="Close" Key="Escape" />
+    </Window.InputBindings>
+    <DockPanel RenderTransformOrigin="0.513,0.298">
+        <Menu DockPanel.Dock="Top" Height="25">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Settings" Click="MenuItemSettings_Click"/>
+                <MenuItem Header="_Exit" Click="MenuItemClose_Click"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="61*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnGetArticles" Content="Fetch Articles" HorizontalAlignment="Left" Margin="240,10,0,0" VerticalAlignment="Top" Width="85" Click="btnGetArticles_Click"/>
+            <Label x:Name="label1" Content="Website:" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="60"/>
+            <ComboBox x:Name="cbxWebSites" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cbxWebSites_SelectionChanged"/>
+            <Button x:Name="btnLoadTweets" Content="Load Tweets" Grid.Column="1" HorizontalAlignment="Left" Margin="40,10,0,0" VerticalAlignment="Top" Width="80"/>
+            <ListView x:Name="lbxNewsArticles" HorizontalAlignment="Left" Height="328" Margin="10,38,0,0" VerticalAlignment="Top" Width="521">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Title"  Width="521" DisplayMemberBinding="{Binding Title}" />
+                        <!--<GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Price" Width="60">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Price,  ConverterCulture='en-IE', StringFormat=C2}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Tax" Width="60">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Tax, ConverterCulture='en-IE', StringFormat=C2}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Type" Width="80" DisplayMemberBinding="{Binding Type}" />-->
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button x:Name="btnViewArticle" Content="View Article" HorizontalAlignment="Left" Margin="456,10,0,0" VerticalAlignment="Top" Width="75"/>
+
+        </Grid>
+    </DockPanel>
+
+
+
+</Window>
