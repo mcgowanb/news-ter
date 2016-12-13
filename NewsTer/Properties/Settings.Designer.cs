@@ -25,7 +25,7 @@ namespace NewsTer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4222277297")]
         public string UserID {
             get {
                 return ((string)(this["UserID"]));
@@ -37,7 +37,7 @@ namespace NewsTer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Tg6Au8WRLlOtZQBjJI8Bk56QL")]
         public string ConsumerKey {
             get {
                 return ((string)(this["ConsumerKey"]));
@@ -49,7 +49,7 @@ namespace NewsTer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("uo3AZ5TCuruw5A4yP1F0998ZoYSPkyw8gpu8zfqWw8HcUMQW9T")]
         public string ConsumerSecret {
             get {
                 return ((string)(this["ConsumerSecret"]));
@@ -61,7 +61,7 @@ namespace NewsTer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("fHrQ4JKWhskLKfwJFl5ow7FGqD1BXRW9KrlmqXgcUxaSS")]
         public string AccessSecret {
             get {
                 return ((string)(this["AccessSecret"]));
@@ -73,7 +73,7 @@ namespace NewsTer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("4222277297-W7AxgyKv6jnGizv2y8mpCv8MpRpbqQLzaw2fOeJ")]
         public string AccessToken {
             get {
                 return ((string)(this["AccessToken"]));
@@ -85,7 +85,7 @@ namespace NewsTer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.thejournal.ie/feed/")]
         public string TheJournalXmlUri {
             get {
                 return ((string)(this["TheJournalXmlUri"]));
@@ -97,7 +97,7 @@ namespace NewsTer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.thejournal.ie/feed/")]
         public string DailyEdgeXmlUri {
             get {
                 return ((string)(this["DailyEdgeXmlUri"]));
@@ -121,7 +121,7 @@ namespace NewsTer.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://www.thejournal.ie/feed/")]
         public string The42XmlUri {
             get {
                 return ((string)(this["The42XmlUri"]));

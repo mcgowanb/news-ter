@@ -28,5 +28,30 @@ namespace NewsTer
             }
             return URI;
         }
+
+        public static String GetUserID()
+        {
+            return Properties.Settings.Default.UserID;
+        }
+
+        public static String GetAccessToken()
+        {
+            return Properties.Settings.Default.AccessToken;
+        }
+
+        public static String GetAccessSecret()
+        {
+            return Properties.Settings.Default.AccessSecret;
+        }
+
+        public static String GetConsumeKey()
+        {
+            return Properties.Settings.Default.ConsumerKey;
+        }
+
+        public static String GetConsumerSecret()
+        {
+            return Properties.Settings.Default.ConsumerSecret;
+        }
     }
 }

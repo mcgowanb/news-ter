@@ -1,18 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using TweetSharp;
 
 namespace NewsTer
 {
@@ -50,7 +42,6 @@ namespace NewsTer
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             SetComboBoxList();
-            btnViewArticle.IsEnabled = false;
         }
 
         public void SetComboBoxList()
@@ -67,7 +58,8 @@ namespace NewsTer
             cbxWebSites.ItemsSource = list;
         }
 
-        private void btnGetArticles_Click(object sender, RoutedEventArgs e)
+
+        private void cbxWebSites_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             NewsSitePairs selectedURI = cbxWebSites.SelectedItem as NewsSitePairs;
             string URI = (selectedURI != null) ? selectedURI._Value : null;
@@ -84,18 +76,36 @@ namespace NewsTer
             }
         }
 
-        private void cbxWebSites_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void lbxNewsArticles_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            ComboBox selecton = sender as ComboBox;
-            NewsSitePairs selected = selecton.SelectedItem as NewsSitePairs;
-            if (!String.IsNullOrEmpty(selected._Value))
+            Article article = lbxNewsArticles.SelectedItem as Article;
+            Uri uri = new Uri(article.GUID);
+            if (uri.IsAbsoluteUri)
             {
-                btnViewArticle.IsEnabled = true;
+
             }
             else
             {
-                btnViewArticle.IsEnabled = false;
+                MessageBox.Show("Error with URL, please try again");
+
             }
+            System.Diagnostics.Process.Start(article.GUID);
         }
+
+        private void btnLoadTweets_Click(object sender, RoutedEventArgs e)
+        {
+            TwitterFactory tf = new TwitterFactory(
+                Properties.Settings.Default.AccessToken,
+                Properties.Settings.Default.AccessSecret,
+                Properties.Settings.Default.ConsumerKey,
+                Properties.Settings.Default.ConsumerSecret,
+                Properties.Settings.Default.UserID
+                );
+
+            IEnumerable<TwitterStatus> currentTweets = tf.LoadTimeline();
+            lbxTwitterTimeline.ItemsSource = currentTweets;
+        }
+    
+
     }
 }

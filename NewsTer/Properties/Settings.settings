@@ -3,31 +3,31 @@
   <Profiles />
   <Settings>
     <Setting Name="UserID" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">4222277297</Value>
     </Setting>
     <Setting Name="ConsumerKey" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Tg6Au8WRLlOtZQBjJI8Bk56QL</Value>
     </Setting>
     <Setting Name="ConsumerSecret" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">uo3AZ5TCuruw5A4yP1F0998ZoYSPkyw8gpu8zfqWw8HcUMQW9T</Value>
     </Setting>
     <Setting Name="AccessSecret" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">fHrQ4JKWhskLKfwJFl5ow7FGqD1BXRW9KrlmqXgcUxaSS</Value>
     </Setting>
     <Setting Name="AccessToken" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">4222277297-W7AxgyKv6jnGizv2y8mpCv8MpRpbqQLzaw2fOeJ</Value>
     </Setting>
     <Setting Name="TheJournalXmlUri" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">http://www.thejournal.ie/feed/</Value>
     </Setting>
     <Setting Name="DailyEdgeXmlUri" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">http://www.thejournal.ie/feed/</Value>
     </Setting>
     <Setting Name="ForaXmlUri" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="The42XmlUri" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">http://www.thejournal.ie/feed/</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -26,34 +26,23 @@
                 <ColumnDefinition Width="60*"/>
                 <ColumnDefinition Width="61*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="btnGetArticles" Content="Fetch Articles" HorizontalAlignment="Left" Margin="240,10,0,0" VerticalAlignment="Top" Width="85" Click="btnGetArticles_Click"/>
             <Label x:Name="label1" Content="Website:" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="60"/>
             <ComboBox x:Name="cbxWebSites" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cbxWebSites_SelectionChanged"/>
-            <Button x:Name="btnLoadTweets" Content="Load Tweets" Grid.Column="1" HorizontalAlignment="Left" Margin="40,10,0,0" VerticalAlignment="Top" Width="80"/>
-            <ListView x:Name="lbxNewsArticles" HorizontalAlignment="Left" Height="328" Margin="10,38,0,0" VerticalAlignment="Top" Width="521">
+            <Button x:Name="btnLoadTweets" Content="Load Tweets" Grid.Column="1" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" Width="80" Click="btnLoadTweets_Click"/>
+            <ListView x:Name="lbxNewsArticles" HorizontalAlignment="Left" Height="328" Margin="10,38,0,0" VerticalAlignment="Top" Width="521" MouseDoubleClick="lbxNewsArticles_MouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Title"  Width="521" DisplayMemberBinding="{Binding Title}" />
-                        <!--<GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Price" Width="60">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Price,  ConverterCulture='en-IE', StringFormat=C2}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Tax" Width="60">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding Tax, ConverterCulture='en-IE', StringFormat=C2}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Type" Width="80" DisplayMemberBinding="{Binding Type}" />-->
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button x:Name="btnViewArticle" Content="View Article" HorizontalAlignment="Left" Margin="456,10,0,0" VerticalAlignment="Top" Width="75"/>
+            <ListView x:Name="lbxTwitterTimeline" HorizontalAlignment="Left" Height="328" Margin="10,38,0,0" VerticalAlignment="Top" Width="521" Grid.Column="1">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Title"  Width="521" DisplayMemberBinding="{Binding Text}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
         </Grid>
     </DockPanel>
