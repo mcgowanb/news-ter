@@ -78,7 +78,7 @@
     <Compile Include="TwitterFactory.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="XmlParser.cs" />
-    <Page Include="MainWindow.xaml">
+    <Page Include="NewsTer.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -86,8 +86,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="NewsTer.xaml.cs">
+      <DependentUpon>NewsTer.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Settings.xaml">

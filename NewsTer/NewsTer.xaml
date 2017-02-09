@@ -36,12 +36,17 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <ListView x:Name="lbxTwitterTimeline" HorizontalAlignment="Left" Height="328" Margin="10,38,0,0" VerticalAlignment="Top" Width="521" Grid.Column="1">
+            <ListView x:Name="lbxTwitterTimeline" HorizontalAlignment="Left" Height="328" Margin="10,38,0,0" VerticalAlignment="Top" Width="521" Grid.Column="1" MouseDoubleClick="lbxTwitterTimeline_MouseDoubleClick">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Title"  Width="521" DisplayMemberBinding="{Binding Text}" />
                     </GridView>
                 </ListView.View>
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Copy"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
             </ListView>
 
         </Grid>

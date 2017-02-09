@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -82,14 +83,14 @@ namespace NewsTer
             Uri uri = new Uri(article.GUID);
             if (uri.IsAbsoluteUri)
             {
-
+                System.Diagnostics.Process.Start(article.GUID);
             }
             else
             {
                 MessageBox.Show("Error with URL, please try again");
 
             }
-            System.Diagnostics.Process.Start(article.GUID);
+           
         }
 
         private void btnLoadTweets_Click(object sender, RoutedEventArgs e)
@@ -105,7 +106,21 @@ namespace NewsTer
             IEnumerable<TwitterStatus> currentTweets = tf.LoadTimeline();
             lbxTwitterTimeline.ItemsSource = currentTweets;
         }
-    
 
+        private void lbxTwitterTimeline_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            TwitterStatus selected = lbxTwitterTimeline.SelectedItem as TwitterStatus;
+            if(selected != null)
+            {
+                //Uri tweetURI = BuildURIForTweet(selected);
+                //https://twitter.com/ROINewsNow/status/
+                String tweetID = selected.IdStr;
+                String author = selected.Author.ScreenName;
+                MessageBox.Show(author);
+
+
+                //System.Diagnostics.Process.Start(match.ToString());
+            }
+        }
     }
 }

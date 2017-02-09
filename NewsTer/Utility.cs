@@ -12,7 +12,7 @@ namespace NewsTer
 
         public static String GetWebURI(WebSites site)
         {
-            String URI = null;
+            String URI;
             switch (site)
             {
                 case WebSites.TheJournal:
@@ -24,7 +24,9 @@ namespace NewsTer
                 case WebSites.The42:
                     URI = Properties.Settings.Default.The42XmlUri;
                     break;
-
+                default:
+                    URI = null;
+                    break;
             }
             return URI;
         }
