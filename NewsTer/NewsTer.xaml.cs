@@ -42,54 +42,56 @@ namespace NewsTer
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Uri uri = new Uri("http://www.google.ie");
+            //wbDisplay.Source = uri;
             SetComboBoxList();
         }
 
         public void SetComboBoxList()
         {
-            List<NewsSitePairs> list = new List<NewsSitePairs>();
-            NewsSitePairs theJournal = new NewsSitePairs("The Journal", Utility.GetWebURI(Utility.WebSites.TheJournal));
-            list.Add(theJournal);
-            NewsSitePairs dailyEdge = new NewsSitePairs("The Daily Edge", Utility.GetWebURI(Utility.WebSites.TheDailyEdge));
-            list.Add(dailyEdge);
-            NewsSitePairs the42 = new NewsSitePairs("The 42", Utility.GetWebURI(Utility.WebSites.The42));
-            list.Add(the42);
+            //List<NewsSitePairs> list = new List<NewsSitePairs>();
+            //NewsSitePairs theJournal = new NewsSitePairs("The Journal", Utility.GetWebURI(Utility.WebSites.TheJournal));
+            //list.Add(theJournal);
+            //NewsSitePairs dailyEdge = new NewsSitePairs("The Daily Edge", Utility.GetWebURI(Utility.WebSites.TheDailyEdge));
+            //list.Add(dailyEdge);
+            //NewsSitePairs the42 = new NewsSitePairs("The 42", Utility.GetWebURI(Utility.WebSites.The42));
+            //list.Add(the42);
 
-            cbxWebSites.DisplayMemberPath = "_Key";
-            cbxWebSites.ItemsSource = list;
+            //cbxWebSites.DisplayMemberPath = "_Key";
+            //cbxWebSites.ItemsSource = list;
         }
 
 
         private void cbxWebSites_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            NewsSitePairs selectedURI = cbxWebSites.SelectedItem as NewsSitePairs;
-            string URI = (selectedURI != null) ? selectedURI._Value : null;
-            if (URI != null)
-            {
-                XmlParser parser = new XmlParser(URI);
-                articles = parser.FetchArticles();
-                lbxNewsArticles.ItemsSource = articles;
-            }
-            else
-            {
-                String message = "You have not selected a website to load news articles for.\nPlease choose an option and try again";
-                MessageBox.Show(message, "Error", MessageBoxButton.OK, MessageBoxImage.Information);
-            }
+            //NewsSitePairs selectedURI = cbxWebSites.SelectedItem as NewsSitePairs;
+            //string URI = (selectedURI != null) ? selectedURI._Value : null;
+            //if (URI != null)
+            //{
+            //    XmlParser parser = new XmlParser(URI);
+            //    articles = parser.FetchArticles();
+            //    lbxNewsArticles.ItemsSource = articles;
+            //}
+            //else
+            //{
+            //    String message = "You have not selected a website to load news articles for.\nPlease choose an option and try again";
+            //    MessageBox.Show(message, "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+            //}
         }
 
         private void lbxNewsArticles_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Article article = lbxNewsArticles.SelectedItem as Article;
-            Uri uri = new Uri(article.GUID);
-            if (uri.IsAbsoluteUri)
-            {
-                System.Diagnostics.Process.Start(article.GUID);
-            }
-            else
-            {
-                MessageBox.Show("Error with URL, please try again");
+            //Article article = lbxNewsArticles.SelectedItem as Article;
+            //Uri uri = new Uri(article.GUID);
+            //if (uri.IsAbsoluteUri)
+            //{
+            //    System.Diagnostics.Process.Start(article.GUID);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Error with URL, please try again");
 
-            }
+            //}
            
         }
 
@@ -104,22 +106,21 @@ namespace NewsTer
                 );
 
             IEnumerable<TwitterStatus> currentTweets = tf.LoadTimeline();
-            lbxTwitterTimeline.ItemsSource = currentTweets;
+            lbxTweets.ItemsSource = currentTweets;
         }
 
-        private void lbxTwitterTimeline_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void lbxTweets_MouseClick(object sender, MouseButtonEventArgs e)
         {
-            TwitterStatus selected = lbxTwitterTimeline.SelectedItem as TwitterStatus;
-            if(selected != null)
+          
+        }
+
+        private void lbxTweets_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TwitterStatus selected = lbxTweets.SelectedItem as TwitterStatus;
+            if (selected != null)
             {
-                //Uri tweetURI = BuildURIForTweet(selected);
-                //https://twitter.com/ROINewsNow/status/
-                String tweetID = selected.IdStr;
-                String author = selected.Author.ScreenName;
-                MessageBox.Show(author);
-
-
-                //System.Diagnostics.Process.Start(match.ToString());
+                String s = String.Format("{0}{1}", Utility.BASELINE_URL, selected.IdStr);
+                wbDisplay.Source = new Uri(s);
             }
         }
     }

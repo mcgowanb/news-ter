@@ -9,7 +9,7 @@ namespace NewsTer
     static class Utility
     {
         public enum WebSites { TheJournal, The42, TheDailyEdge };
-
+        public const String BASELINE_URL = "https://twitter.com/ROINewsNow/status/";
         public static String GetWebURI(WebSites site)
         {
             String URI;

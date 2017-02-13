@@ -124,10 +124,20 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="images\" />
+    <Resource Include="images\the42.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\dailyEdge.ico" />
+    <Resource Include="images\journal.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\download_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\twitter-inverse.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

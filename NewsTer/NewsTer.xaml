@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewsTer"
         mc:Ignorable="d"
-        Title="NewsTer News Tweeting Application" Height="447" Width="1099" WindowStartupLocation="CenterScreen"
+        Title="NewsTer News Tweeting Application" Height="800" Width="1200" WindowStartupLocation="CenterScreen"
         Loaded="Window_Loaded">
 
     <Window.CommandBindings>
@@ -21,33 +21,85 @@
                 <MenuItem Header="_Exit" Click="MenuItemClose_Click"/>
             </MenuItem>
         </Menu>
-        <Grid>
+        <Grid ShowGridLines="True">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+            
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="60*"/>
-                <ColumnDefinition Width="61*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="label1" Content="Website:" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top" Width="60"/>
-            <ComboBox x:Name="cbxWebSites" HorizontalAlignment="Left" Margin="75,10,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cbxWebSites_SelectionChanged"/>
-            <Button x:Name="btnLoadTweets" Content="Load Tweets" Grid.Column="1" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top" Width="80" Click="btnLoadTweets_Click"/>
-            <ListView x:Name="lbxNewsArticles" HorizontalAlignment="Left" Height="328" Margin="10,38,0,0" VerticalAlignment="Top" Width="521" MouseDoubleClick="lbxNewsArticles_MouseDoubleClick">
+
+            <!--Heading Icons-->
+            <Grid Grid.Row="0" Grid.Column="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Image Source="/images/journal.ico" />
+                    <RadioButton Margin="10" Content="The Journal" VerticalAlignment="Center" GroupName="WebSite"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Image Source="/images/dailyEdge.ico" />
+                    <RadioButton Margin="10" Content="The Daily Edge" VerticalAlignment="Center" GroupName="WebSite"/>
+                </StackPanel>
+                <StackPanel Grid.Column="2" Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Image Source="/images/the42.png" />
+                    <RadioButton Margin="10" Content="The 42" VerticalAlignment="Center" GroupName="WebSite"/>
+                </StackPanel>
+            </Grid>
+            <!--End Heading Icons-->
+            
+            <!--Right Side Buttons-->
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Margin="10" Grid.Row="0" Background="#FF52ABEC" ToolTip="Download Tweets" Name="btnLoadTweets" Click="btnLoadTweets_Click">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <Image Source="/images/download_small.png" Margin="0,0,10,0" />
+                        <Image Source="/images/twitter-inverse.png" Margin="10,0,0,0" />
+
+                    </StackPanel>
+                </Button>
+                <Button Grid.Column="2" Margin="10" Grid.Row="0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <TextBlock Padding="5">Publish</TextBlock>
+                        <Image Source="/images/journal.ico" />
+
+                    </StackPanel>
+                </Button>
+
+            </Grid>
+            <!--End Right Side Buttons-->
+
+            <ListView Name="lbxArticles" Margin="10" Grid.Row="1" Grid.Column="0">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Title"  Width="521" DisplayMemberBinding="{Binding Title}" />
+                        <GridViewColumn Header="Icon"  Width="50" DisplayMemberBinding="{Binding Title}" />
+                        <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" />
                     </GridView>
                 </ListView.View>
             </ListView>
-            <ListView x:Name="lbxTwitterTimeline" HorizontalAlignment="Left" Height="328" Margin="10,38,0,0" VerticalAlignment="Top" Width="521" Grid.Column="1" MouseDoubleClick="lbxTwitterTimeline_MouseDoubleClick">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Title"  Width="521" DisplayMemberBinding="{Binding Text}" />
-                    </GridView>
-                </ListView.View>
-                <ListView.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="Copy"/>
-                    </ContextMenu>
-                </ListView.ContextMenu>
-            </ListView>
+            <ListBox Name="lbxTweets" Margin="10" Grid.Row="2" Grid.Column="0" SelectionChanged="lbxTweets_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Padding="5,0,5,0" Text="{Binding Text}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <WebBrowser Name="wbDisplay" Grid.Column="1"  Grid.Row="1" Grid.RowSpan="2" Margin="10"/>
 
         </Grid>
     </DockPanel>
