@@ -49,16 +49,14 @@ namespace NewsTer
 
         public void SetComboBoxList()
         {
-            //List<NewsSitePairs> list = new List<NewsSitePairs>();
-            //NewsSitePairs theJournal = new NewsSitePairs("The Journal", Utility.GetWebURI(Utility.WebSites.TheJournal));
-            //list.Add(theJournal);
-            //NewsSitePairs dailyEdge = new NewsSitePairs("The Daily Edge", Utility.GetWebURI(Utility.WebSites.TheDailyEdge));
-            //list.Add(dailyEdge);
-            //NewsSitePairs the42 = new NewsSitePairs("The 42", Utility.GetWebURI(Utility.WebSites.The42));
-            //list.Add(the42);
+            List<NewsSitePairs> list = new List<NewsSitePairs>();
+            NewsSitePairs theJournal = new NewsSitePairs("The Journal", Utility.GetWebURI(Utility.WebSites.TheJournal));
+            list.Add(theJournal);
+            NewsSitePairs dailyEdge = new NewsSitePairs("The Daily Edge", Utility.GetWebURI(Utility.WebSites.TheDailyEdge));
+            list.Add(dailyEdge);
+            NewsSitePairs the42 = new NewsSitePairs("The 42", Utility.GetWebURI(Utility.WebSites.The42));
+            list.Add(the42);
 
-            //cbxWebSites.DisplayMemberPath = "_Key";
-            //cbxWebSites.ItemsSource = list;
         }
 
 
@@ -122,6 +120,13 @@ namespace NewsTer
                 String s = String.Format("{0}{1}", Utility.BASELINE_URL, selected.IdStr);
                 wbDisplay.Source = new Uri(s);
             }
+        }
+
+        private void WebSiteButton_Checked(object sender, RoutedEventArgs e)
+        {
+            XmlParser parser = new XmlParser("http://thejournal.ie/feed");
+            articles = parser.FetchArticles();
+            lbxArticles.ItemsSource = articles;
         }
     }
 }
